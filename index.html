@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keiranyan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imgs/tabibito.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!---land page-->
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="imgs/web-01.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-sharp fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Traditional | Digital Artist</p>
+            <h1>Hi! I'm <span>Keiranyan</span></h1>
+        </div>
+    </div>
+</div>
+<!----about me section-->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="imgs/me-2-edited.png" alt="picture of me">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <h5 class="sub">TRADITONAL | DIGITAL ARTIST</h5>
+                <p class="paragraph">
+                    I'm a self taught artist, I do Traditonal and Digital drawings.
+                    Anime has been a huge influence on my art since I was just a kid.
+                    Because of that I have become interested in digital drawing
+                    and animation, to which is my I pursued the graphic and design course.
+                    I hope to one day work in the creative industry whether it be in a gaming 
+                    industry, animation industry or a manga/manhwa artist.
+                </p>
+            </div>
+        </div> 
+    </div>
+</div>
+<!--------ARTWORKS---------->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title-2">ARTWORKS</h1>
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-chevron-left"></i></i>
+            <div class="carousel">
+                <img src="imgs/pic11.png" draggable="false">
+                <img src="imgs/pic6.png" draggable="false">
+                <img src="imgs/old15.jpg" draggable="false">
+                <img src="imgs/pic3.jpg" draggable="false">
+                <img src="imgs/pic10.png" draggable="false">
+                <img src="imgs/pic7.png" draggable="false">
+                <img src="imgs/pic12.png" draggable="false">
+                <img src="imgs/pic13.png" draggable="false">
+                <img src="imgs/pic1.png" draggable="false">
+                <img src="imgs/pic14.JPG" draggable="false">
+                <img src="imgs/pic8.png" draggable="false">
+                <img src="imgs/old5.jpg" draggable="false">
+                <img src="imgs/O3.png" draggable="false">
+                <img src="imgs/O1.png" draggable="false">
+                <img src="imgs/O2.png" draggable="false">
+                <img src="imgs/O4.png" draggable="false">
+                <img src="imgs/O5.png" draggable="false">
+                <img src="imgs/bat.png" draggable="false">
+                <img src="imgs/old6.jpeg" draggable="false">
+            </div>
+            <i id="right" class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<!---CONTACT ME SECTION--->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title-2">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>keiranyanee@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/keiopiii/"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="https://www.deviantart.com/keiranyan"><i class="fa-brands fa-deviantart"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+<!---COPYRIGHTSSSS------>
+    <div class="copyright">
+        <p>Copyright © 2023 by Keiranyan | made for Portfolio & All rights Reserved</p>
+    </div>
+</div>
+
+<!--Javascript for navbar in mobile-->
+<script>
+
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+        
+</script>
+<!--Javascript for artworks carrousel-->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzioPKfkA4I3hnJNAtoXBCGzYYlIL6xf2ocqzmgZddR9g1e7TR37uWvwCBZFPRmkLMa/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent "
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
